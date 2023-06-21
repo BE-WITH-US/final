@@ -1,200 +1,70 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <style>
-    body {
-      background-image: url("data:image/jpeg;base64,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.jpg");
-      background-repeat: no-repeat;
-      background-size: cover;
-      /* You can also specify additional background properties if needed */
-    }
-  </style>
-</head>
-
-  <head>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>AI BASED ROBOTIC DOCTOR ASSISTANT</title>
+        <head>
     
-    <div align-text="center", text-justify="center">
-
-      <h1><center>AI BASED ROBOTIC DOCTOR ASSISTANT</center></h1>
-    
-   </div>
-   </head>
-   <head> 
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <style>
-    .arrows {
-      font-size:30px;
-      color:blue;
-    }
-    td.button {
-      background-color:rgb(43, 255, 0);
-      border: radius 50px;
-      box-shadow: 8px 8px #888888;
-    }
-    td.button:active {
-      transform: translate(8px,8px);
-      box-shadow: none; 
-    }
-
-    .noselect {
-      -webkit-touch-callout: none; /* iOS Safari */
-        -webkit-user-select: none; /* Safari */
-         -khtml-user-select: none; /* Konqueror HTML */
-           -moz-user-select: none; /* Firefox */
-            -ms-user-select: none; /* Internet Explorer/Edge */
-                user-select: none; /* Non-prefixed version, currently
-                                      supported by Chrome and Opera */
-    }
-
-    .slidecontainer {
-      width: 100%;
-    }
-
-    .slider {
-      -webkit-appearance: none;
-      width: 100%;
-      height: 20px;
-      border-radius: 10px;
-      background: #d3d3d3;
-      outline: none;
-      opacity: 0.7;
-      -webkit-transition: .2s;
-      transition: opacity .2s;
-    }
-
-    .slider:hover {
-      opacity: 1;
-    }
-  
-    .slider::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 25px;
-      height: 25px;
-      border-radius: 50%;
-      background: black;
-      cursor: pointer;
-    }
-
-    .slider::-moz-range-thumb {
-      width: 25px;
-      height: 25px;
-      border-radius: 50%;
-      background: red;
-      cursor: pointer;
-    }
-
-    </style>
-  
-  </head>
-  <body class="noselect" align="center" style="background-color:white">
-    <table id="mainTable" style="width:400px;margin:auto;table-layout:fixed" CELLSPACING=10>
-      <tr>
-        <img id="cameraImage" src="" style="width:800px;height:300px"></td>
-      </tr> 
-      <tr>
-        <td></td>
-        <td class="button" ontouchstart='sendButtonInput("MoveCar","1")' ontouchend='sendButtonInput("MoveCar","0")'><span class="arrows" >&#8679;</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td class="button" ontouchstart='sendButtonInput("MoveCar","3")' ontouchend='sendButtonInput("MoveCar","0")'><span class="arrows" >&#8678;</span></td>
-        <td class="button"></td>    
-        <td class="button" ontouchstart='sendButtonInput("MoveCar","4")' ontouchend='sendButtonInput("MoveCar","0")'><span class="arrows" >&#8680;</span></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td class="button" ontouchstart='sendButtonInput("MoveCar","2")' ontouchend='sendButtonInput("MoveCar","0")'><span class="arrows" >&#8681;</span></td>
-        <td></td>
-  
-      </tr>
-      <tr/><tr/>
-      <tr>
-        <td style="text-align:left"><b>Speed:</b></td>
-        <td colspan=2>
-         <div class="slidecontainer">
-            <input type="range" min="0" max="255" value="0" class="slider" id="Speed" oninput='sendButtonInput("Speed",value)'>
-          </div>
-        </td>
-      </tr>        
-      <tr>
-        <td style="text-align:left"><b>Light:</b></td>
-        <td colspan=2>
-          <div class="slidecontainer">
-            <input type="range" min="0" max="255" value="0" class="slider" id="Light" oninput='sendButtonInput("Light",value)'>
-          </div>
-        </td>   
-      </tr>
-      <tr>
-        <td style="text-align:left"><b>Pan:</b></td>
-        <td colspan=2>
-         <div class="slidecontainer">
-            <input type="range" min="0" max="180" value="90" class="slider" id="Pan" oninput='sendButtonInput("Pan",value)'>
-          </div>
-        </td>
-      </tr> 
-      <tr>
-        <td style="text-align:left"><b>Tilt:</b></td>
-        <td colspan=2>
-          <div class="slidecontainer">
-            <input type="range" min="0" max="180" value="90" class="slider" id="Tilt" oninput='sendButtonInput("Tilt",value)'>
-          </div>
-        </td>   
-      </tr>      
-    </table>
-  
+            <div align-text="center", text-justify="center">
+        
+              <h1><center>AI BASED ROBOTIC DOCTOR ASSISTANT</center></h1>
+            
+           </div>
+           </head>
+        <style>
+            .button {background-color: #00b52d;border: none;border-radius: 6px;color: rgb(236, 245, 237);padding: 10px 25px;text-align: center;font-size: 18px;margin: 4px 2px;cursor: pointer;}
+            .slider {appearance: none;width: 70%;height: 25px;border-radius: 20px;background: #d3d3d3;outline: none;}
+            .slider::-webkit-slider-thumb {appearance: none;appearance: none;width: 30px;height: 30px;border-radius: 50%;background: #06b500;}
+            .label {color: #00b53c;font-size: 18px;}
+        </style>
+    </head>
+    <body>
+    <div align=center> <img id= "camstream" src="" style='width:600px;'></div>
+    <br/>
+    <br/>
+    <div align=center> 
+    <button class="button" id="forward" ontouchstart="fetch(document.location.origin+'/control?var=car&val=1');" ontouchend="fetch(document.location.origin+'/control?var=car&val=3');" >Forward</button>
+    </div>
+    <br/>
+    <div align=center> 
+    <button class="button" id="turnleft" ontouchstart="fetch(document.location.origin+'/control?var=car&val=2');" ontouchend="fetch(document.location.origin+'/control?var=car&val=3');" >Turn Left</button>
+    <button class="button" id="stop" onclick="fetch(document.location.origin+'/control?var=car&val=3');">Stop</button>
+    <button class="button" id="turnright" ontouchstart="fetch(document.location.origin+'/control?var=car&val=4');" ontouchend="fetch(document.location.origin+'/control?var=car&val=3');" >Turn Right</button>
+    </div>
+    <br/>
+     <div align=center> 
+    <button class="button" id="backward" ontouchstart="fetch(document.location.origin+'/control?var=car&val=5');" ontouchend="fetch(document.location.origin+'/control?var=car&val=3');">Backward</button>
+    </div>
+    <br/>
+    <div align=center> 
+    <label class="label">Flash</label>
+    <input type="range" class="slider" id="flash" min="0" max="255" value="0" onchange="try{fetch(document.location.origin+'/control?var=flash&val='+this.value);}catch(e){}">
+    </div>
+    <br/>
+    <div align=center> 
+    <label class="label">Speed</label>
+    <input type="range" class="slider" id="speed" min="0" max="255" value="0" onchange="try{fetch(document.location.origin+'/control?var=speed&val='+this.value);}catch(e){}">
+    </div>
+     <br/>
+    <div align=center> 
+    <button class="button" id="tiltup" onclick="fetch(document.location.origin+'/control?var=pantilt&val=1');" >Tilt Up</button>
+    </div>
+    <div align=center> 
+    <button class="button" id="panleft" onclick="fetch(document.location.origin+'/control?var=pantilt&val=2');" >Pan Left</button>
+    <button class="button" id="panright" onclick="fetch(document.location.origin+'/control?var=pantilt&val=3');" >Pan Right</button>
+    </div>
+     <div align=center> 
+    <button class="button" id="tiltdown" onclick="fetch(document.location.origin+'/control?var=pantilt&val=4');" >Tilt Down</button>
+    </div> 
     <script>
-      var webSocketCameraUrl = "ws:\/\/" + window.location.hostname + "/Camera";
-      var webSocketCarInputUrl = "ws:\/\/" + window.location.hostname + "/CarInput";      
-      var websocketCamera;
-      var websocketCarInput;
-      
-      function initCameraWebSocket() 
-      {
-        websocketCamera = new WebSocket(webSocketCameraUrl);
-        websocketCamera.binaryType = 'blob';
-        websocketCamera.onopen    = function(event){};
-        websocketCamera.onclose   = function(event){setTimeout(initCameraWebSocket, 2000);};
-        websocketCamera.onmessage = function(event)
-        {
-          var imageId = document.getElementById("cameraImage");
-          imageId.src = URL.createObjectURL(event.data);
-        };
-      }
-      
-      function initCarInputWebSocket() 
-      {
-        websocketCarInput = new WebSocket(webSocketCarInputUrl);
-        websocketCarInput.onopen    = function(event)
-        {
-          sendButtonInput("Speed", document.getElementById("Speed").value);
-          sendButtonInput("Light", document.getElementById("Light").value);
-          sendButtonInput("Pan", document.getElementById("Pan").value);
-          sendButtonInput("Tilt", document.getElementById("Tilt").value);                    
-        };
-        websocketCarInput.onclose   = function(event){setTimeout(initCarInputWebSocket, 2000);};
-        websocketCarInput.onmessage = function(event){};        
-      }
-      
-      function initWebSocket() 
-      {
-        initCameraWebSocket ();
-        initCarInputWebSocket();
-      }
-
-      function sendButtonInput(key, value) 
-      {
-        var data = key + "," + value;
-        websocketCarInput.send(data);
-      }
-    
-      window.onload = initWebSocket;
-      document.getElementById("mainTable").addEventListener("touchend", function(event){
-        event.preventDefault()
-      });      
+        window.onload = document.getElementById("camstream").src = window.location.href.slice(0, -1) + ":81/stream";
     </script>
-  </body>   
- <body>
-  <!-- Your HTML content goes here -->
-  <a href="https://be-with-us.github.io/patientdata/sensor.html">Patient Data</a>
-</body>
+    </body>
+    <body>
+        <!-- Your HTML content goes here -->
+        
+      <h2 style="font-size: 30px;">  <center><a href="http://127.0.0.1:5500/web.html" style="color: rgb(255, 0, 0);">Patient Data</a></center></h2>
+      
+      </body>
 </html>
